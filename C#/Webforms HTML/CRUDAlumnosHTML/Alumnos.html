@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Alumnos.css">
+    <title>Alumnos</title>
+    <script src="Alumnos.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1 id="title">Alumnos</h1>
+    </header>
+
+    <div class="container">
+    <form id="survey-form">
+        <div class="form-group">
+            <label for="txtId">Id: </label>
+            <input id="id" type="text" name="txtId" placeholder="Ingrese id">
+        </div>
+        <div class="form-group">
+            <label for="txtNombre">Nombre: </label>
+            <input id="name" type="text" name="txtNombre" disabled>
+        </div>
+        <div class="form-group">  
+            <label for="txtEdad">Edad: </label>
+            <input id="number" type="number" name="txtEdad" disabled>
+        </div>  
+        <div class="form-group">
+            <label for="txtEstadoOrigen">Estado Origen: </label>
+            <select id="dropdown" name="txtEstadoOrigen" class="form-control" disabled>
+                <option disabled selected value>Seleccione..</option>
+                <option id="1" value="OAX">Oaxaca</option>
+                <option id="2" value="VRC">Veracruz</option>
+                <option id="3" value="CDM">Ciudad de México</option>
+                <option id="4" value="MOR">Morelos</option>
+               
+            </select>
+        </div><br><br>
+        <div class="form-group">
+            <input id="estatus" type="checkbox" name="chkEstatus" disabled> Estatus
+        </div>
+
+        <div class="form-group">
+            <button type="button" id="submit" onclick="Prueba()">
+              Consultar
+            </button>
+            <button type="submit" id="submit2" onclick="Enviar()">
+              Guardar
+            </button>
+        </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Ciclos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ciclos</h2>
+
+@{
+    int suma = 0;
+    for (var i = 1; i <= 10; i++)
+    {
+        var id = "p" + Convert.ToString(i);
+        <p id="id">La suma es: @suma</p>
+        suma += i;
+    }
+}
+
+
+<p>La suma es: @suma </p>
+
+<br />
+<hr />
+@{
+    Dictionary<string, string> diccionario = new Dictionary<string, string>()
+{
+    {"Http", "Es un protocolo de acceso..."},
+    {"Clase", "Es una plantilla para la creación de objetos..."},
+    {"HTML", "Es un lenguaje de mercado que se utiliza..." }
+};
+}
+
+<dl>
+    @foreach (var item in diccionario)
+    {
+        <dt>
+            @item.Key
+        </dt>
+        <dd>
+            @item.Value
+        </dd>
+    }
+</dl>
+
+<hr />
+<br />
+<ol>
+    @foreach (var item in Request.ServerVariables)
+    {
+        <li>@item</li>
+    }
+</ol>
+
+
+
+

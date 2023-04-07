@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ var mensaje = "";
+    var fecha = DateTime.Now;
+    if (fecha.Hour >= 5 && fecha.Hour <= 12)
+    {
+        mensaje = "Buenos días";
+    }
+    else if (fecha.Hour >= 13 && fecha.Hour <= 19)
+    {
+        mensaje = "Buenas Tardes";
+    }
+    else
+    {
+        mensaje = "Buenas Noches";
+    }
+}
+<h1>Bienvenido</h1>
+<br />
+<h2>Hoy es @fecha</h2>
+<br />
+<h3> @mensaje </h3>
+
+<h3> @Request.Url </h3>
+<h3> @Request.FilePath </h3>
+<h3> @Request.PhysicalApplicationPath </h3>
+<h3> @Request.RequestType </h3>
+

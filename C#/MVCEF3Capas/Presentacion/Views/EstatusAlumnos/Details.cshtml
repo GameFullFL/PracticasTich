@@ -1,0 +1,36 @@
+﻿@model Entidades.EstatusAlumnos
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+<br />
+<div>
+    <h4>Alumnos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <div class="row">
+            <dt class="col-1" >
+                Clave
+            </dt>
+            <dd class="col-auto" style="left">
+                @Html.DisplayFor(model => model.clave)
+            </dd>
+        </div>
+
+        <div class="row">
+            <dt class="col-1" >
+                Nombre
+            </dt>
+            <dd class="col-auto" style="left">
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+        </div>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-primary" })
+</div>

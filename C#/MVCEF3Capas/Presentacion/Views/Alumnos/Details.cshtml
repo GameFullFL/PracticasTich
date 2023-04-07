@@ -1,0 +1,165 @@
+﻿@model Entidades.Alumnos
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+<br />
+<div>
+    <h4>Alumnos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <div class="row">
+            <dt class="col-2" style="text-align:right">
+                ID
+            </dt>
+            <dd class="col-auto">
+                @Html.DisplayFor(model => model.id)
+                <span id="idAlumno" hidden>@Html.DisplayFor(model => model.id)</span>
+            </dd>
+        </div>
+
+        <div class="row">
+            <dt class="col-2" style="text-align:right">
+                Nombre
+            </dt>
+            <dd class="col-auto">
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+        </div>
+
+        <div class="row">
+            <dt class="col-2" style="text-align:right">
+                Primer Apellido
+            </dt>
+            <dd class="col-auto">
+                @Html.DisplayFor(model => model.primerApellido)
+            </dd>
+        </div>
+
+        <div class="row">
+            <dt class="col-2" style="text-align:right">
+                Segundo Apellido
+            </dt>
+            <dd class="col-auto">
+                @Html.DisplayFor(model => model.segundoApellido)
+            </dd>
+        </div>
+
+        <div class="row">
+            <dt class="col-2" style="text-align:right">
+                Fecha de Nacimiento
+            </dt>
+            <dd class="col-auto">
+                @Html.DisplayFor(model => model.fechaNacimiento).ToString().Substring(1, 10)
+            </dd>
+        </div>
+
+        <div class="row">
+            <dt class="col-2" style="text-align:right">
+                CURP
+            </dt>
+            <dd class="col-auto">
+                @Html.DisplayFor(model => model.curp)
+            </dd>
+        </div>
+
+        <div class="row">
+            <dt class="col-2" style="text-align:right">
+                Correo
+            </dt>
+            <dd class="col-auto">
+                @Html.DisplayFor(model => model.correo)
+            </dd>
+        </div>
+
+        <div class="row">
+            <dt class="col-2" style="text-align:right">
+                Telefono
+            </dt>
+            <dd class="col-auto">
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
+        </div>
+
+        <div class="row">
+            <dt class="col-2" style="text-align:right">
+                Sueldo Mensual
+            </dt>
+            <dd class="col-auto">
+                @Html.DisplayFor(model => model.sueldo)
+            </dd>
+        </div>
+
+        <div class="row">
+            <dt class="col-2" style="text-align:right">
+                Estado
+            </dt>
+            <dd class="col-auto">
+                @Html.DisplayFor(model => model.Estados.nombre)
+            </dd>
+        </div>
+
+        <div class="row">
+            <dt class="col-2" style="text-align:right">
+                Estatus
+            </dt>
+            <dd class="col-auto">
+                @Html.DisplayFor(model => model.EstatusAlumnos.nombre)
+            </dd>
+        </div>
+    </dl>
+
+    <div class="modal" id="ventanaModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detalle Alumno</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="text-danger">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalPr"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <button class="btn btn-success" onclick="CalcularIMSS()">Calcular IMSS</button>
+    <button class="btn btn-success" onclick="CalcularISR()">Calcular ISR</button>
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-primary" })
+</div>
+<br />
+<script type="text/javascript">
+
+    function CalcularIMSS() {
+        var id = $("#idAlumno").text();
+        $(".modal-title").text("Calcular IMSS")
+        var urlAction = "@Url.Action("_AportacionesIMSS", "Alumnos")" + "/" + id;
+        LLamaAJAXGEThtml(urlAction, muestraModal);
+    }
+    function CalcularISR() {
+        var id = $("#idAlumno").text();
+        $(".modal-title").text("Calcular ISR")
+        var urlAction = "@Url.Action("_TablaISR", "Alumnos")" + "/" + id;
+
+        LLamaAJAXGEThtml(urlAction, muestraModal);
+    }
+
+    function muestraModal(response) {
+        $("#modalPr").html(response)
+        $("#ventanaModal").modal("show");
+    }
+
+@section Scripts {
+    @Scripts.Render("~/bundles/mibundle")
+}
+
+</script>
+
+

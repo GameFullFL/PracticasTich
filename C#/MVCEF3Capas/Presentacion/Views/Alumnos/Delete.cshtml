@@ -1,0 +1,131 @@
+﻿@model Entidades.Alumnos
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+<h3>Estas seguro que deseas eliminar?</h3>
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <h4>Alumnos</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <div class="row">
+                <dt class="col-2" style="text-align:right">
+                    ID
+                </dt>
+                <dd class="col-auto">
+                    @Html.DisplayFor(model => model.id)
+                </dd>
+            </div>
+
+            <div class="row">
+                <dt class="col-2" style="text-align:right">
+                    Nombre
+                </dt>
+                <dd class="col-auto">
+                    @Html.DisplayFor(model => model.nombre)
+                </dd>
+            </div>
+
+            <div class="row">
+                <dt class="col-2" style="text-align:right">
+                    Primer Apellido
+                </dt>
+                <dd class="col-auto">
+                    @Html.DisplayFor(model => model.primerApellido)
+                </dd>
+            </div>
+
+            <div class="row">
+                <dt class="col-2" style="text-align:right">
+                    Segundo Apellido
+                </dt>
+                <dd class="col-auto">
+                    @Html.DisplayFor(model => model.segundoApellido)
+                </dd>
+            </div>
+
+            <div class="row">
+                <dt class="col-2" style="text-align:right">
+                    Fecha de Nacimiento
+                </dt>
+                <dd class="col-auto">
+                    @Html.DisplayFor(model => model.fechaNacimiento).ToString().Substring(1, 10)
+                </dd>
+            </div>
+
+            <div class="row">
+                <dt class="col-2" style="text-align:right">
+                    CURP
+                </dt>
+                <dd class="col-auto">
+                    @Html.DisplayFor(model => model.curp)
+                </dd>
+            </div>
+
+            <div class="row">
+                <dt class="col-2" style="text-align:right">
+                    Correo
+                </dt>
+                <dd class="col-auto">
+                    @Html.DisplayFor(model => model.correo)
+                </dd>
+            </div>
+
+            <div class="row">
+                <dt class="col-2" style="text-align:right">
+                    Telefono
+                </dt>
+                <dd class="col-auto">
+                    @Html.DisplayFor(model => model.telefono)
+                </dd>
+            </div>
+
+            <div class="row">
+                <dt class="col-2" style="text-align:right">
+                    Sueldo Mensual
+                </dt>
+                <dd class="col-auto">
+                    @Html.DisplayFor(model => model.sueldo)
+                </dd>
+            </div>
+
+            <div class="row">
+                <dt class="col-2" style="text-align:right">
+                    Estado
+                </dt>
+                <dd class="col-auto">
+                    @Html.DisplayFor(model => model.Estados.nombre)
+                </dd>
+            </div>
+
+            <div class="row">
+                <dt class="col-2" style="text-align:right">
+                    Estatus
+                </dt>
+                <dd class="col-auto">
+                    @Html.DisplayFor(model => model.EstatusAlumnos.nombre)
+                </dd>
+            </div>
+
+        </dl>
+
+        <div class="row">
+            <div class="col-2" style="text-align:right">
+                <input type="submit" value="Eliminar" class="btn btn-danger" />
+
+            </div>
+            <div class="col-auto">
+                @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-primary" })
+            </div>
+
+        </div>
+
+    </div>
+}

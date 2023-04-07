@@ -1,0 +1,48 @@
+﻿@model Entidades.EstatusAlumnos
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+<h3>Estas seguro que deseas eliminar?</h3>
+<br />
+<h4>EstatusAlumnos</h4>
+<hr />
+<dl class="dl-horizontal">
+    <div class="row">
+        <dt class="col-1">
+            Clave
+        </dt>
+        <dd class="col-auto" style="left">
+            @Html.DisplayFor(model => model.clave)
+        </dd>
+    </div>
+
+    <div class="row">
+        <dt class="col-1">
+            Nombre
+        </dt>
+        <dd class="col-auto" style="left">
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+    </div>
+</dl>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-1" style="text-align:right">
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+
+        </div>
+        <div class="col-auto">
+            @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+
+    </div>
+}
+</div>
